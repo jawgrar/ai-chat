@@ -42,13 +42,13 @@ import {
 interface SidebarActionsProps {
   chat: Chat
   removeChat: (args: { id: string; path: string }) => ServerActionResult<void>
-  shareChat: (chat: Chat) => ServerActionResult<Chat>
+  // shareChat: (chat: Chat) => ServerActionResult<Chat>
 }
 
 export function SidebarActions({
   chat,
   removeChat,
-  shareChat
+  // shareChat
 }: SidebarActionsProps) {
   const [deleteDialogOpen, setDeleteDialogOpen] = React.useState(false)
   const [shareDialogOpen, setShareDialogOpen] = React.useState(false)
@@ -148,7 +148,8 @@ export function SidebarActions({
                     return
                   }
 
-                  const result = await shareChat(chat)
+                  // const result = await shareChat(chat)
+                  const result = {  error: 'Not implemented' }
 
                   if (result && 'error' in result) {
                     toast.error(result.error)
